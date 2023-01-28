@@ -9,6 +9,10 @@ namespace OpenTashkent.Models
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+        [Required]
+        public string Password { get; set; }
+        [Required]
+        public string UserName { get; set; }
         public DateTime? BirthDate { get; set; }
         public string? Adress { get; set; }
         public DateTime? AcessibleTime { get; set; }

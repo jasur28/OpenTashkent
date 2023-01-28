@@ -117,3 +117,48 @@ span {
     display: inline-block;
     margin-right: 5px;
 }
+.name-custom{
+    font-size:20px;
+    text-decoration:none;
+    color:black;
+}
+
+/* Define table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Define table head styles */
+thead {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Define table cell styles */
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Define styles for links in table cells */
+.name-custom {
+    color: blue;
+    text-decoration: none;
+}
+
+/* Define styles for disease and subject lists */
+td span {
+    display: inline-block;
+    margin-right: 5px;
+}
+.time-slot{
+    float: right;
+}
+td{
+    border-color:black;
+}
+th{
+    border-color:black;
+}

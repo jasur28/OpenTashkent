@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using OpenTashkent.Constraints;
 using OpenTashkent.Data;
 using OpenTashkent.Models;
 using System.Diagnostics;
@@ -19,6 +20,16 @@ namespace OpenTashkent.Controllers
 
         public IActionResult Index()
         {
+            ViewData["IsSignedIn"] = false;
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewData["IsSignedIn"] = true;
+                ViewData["Username"] = User.Identity.Name;
+            }
+            else
+            {
+                ViewData["IsSignedIn"] = false;
+            }
             return View();
         }
 

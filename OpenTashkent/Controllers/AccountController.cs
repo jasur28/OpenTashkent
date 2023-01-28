@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using OpenTashkent.Constraints;
 using OpenTashkent.Data;
 using OpenTashkent.Models;
 
@@ -20,6 +21,34 @@ namespace OpenTashkent.Controllers
         public IActionResult SignIn()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult SignIn(string login, string password)
+        {
+            var student = _userDbContext.Students.FirstOrDefault(x => x.UserName == login);
+            var teacher = _userDbContext.Teachers.FirstOrDefault(x => x.UserName == login);
+            if (student != null) 
+            {
+                if (student.Password == password)
+                {
+                    Authenticated.isAuthorized = true;
+                    object toPass = student.UserName;
+                    return RedirectToAction("Index", "Teacher", new { Name = student.UserName });
+                }
+                return Ok("NOT SUCCESS");
+            }
+            if (teacher != null)
+            {
+                if (teacher.Password == password)
+                {
+                    Authenticated.isAuthorized = true;
+                    object toPass = student.UserName;
+                    return RedirectToAction("Index", "Teacher", new {Name =student.UserName});
+                }
+                return Ok("NOT SUCCESs");
+            }
+            return Ok("NOT SUCCESs");
+            //return RedirectToAction("Index", "Home");
         }
         //[HttpPost]
         //public IActionResult SignIn(string login, string password)
