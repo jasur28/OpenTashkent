@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using OpenTashkent.Data;
 using OpenTashkent.Models;
 using System.Diagnostics;
 
@@ -7,10 +9,15 @@ namespace OpenTashkent.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserDbContext _userDbContext;
+        public HomeController(ILogger<HomeController> logger,
+            UserManager<ApplicationUser> userManager,
+            UserDbContext userDbContext)
         {
             _logger = logger;
+            _userManager = userManager;
+            _userDbContext = userDbContext;
         }
 
         public IActionResult Index()
