@@ -1,0 +1,37 @@
+﻿@model IEnumerable<OpenTashkent.Models.Student>;
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Diseases</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var student in Model)
+    {
+      <tr>
+        <td>@student.FirstName</td>
+        <td>@student.LastName</td>
+        <td>
+          @if (student.Diseases != null)
+          {
+            @foreach (var disease in student.Diseases)
+            {
+              <span>@disease.DiseaseName</span>
+            }
+          }
+          else
+          {
+            <span>None</span>
+          }
+        </td>
+        <td>
+          @student.Adress
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

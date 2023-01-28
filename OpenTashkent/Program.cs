@@ -8,13 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("TalimUsers");
-builder.Services.AddDbContext<UserDbContext>(x =>
+builder.Services.AddDbContext<CustomDbContext>(x =>
     x.UseSqlServer(connectionString));
 // Add Identity
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-    .AddEntityFrameworkStores<UserDbContext>()
-    .AddDefaultTokenProviders()
-    .AddUserManager<UserManager<ApplicationUser>>();
 
 
 var app = builder.Build();

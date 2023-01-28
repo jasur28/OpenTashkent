@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace OpenTashkent.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class Student
     {
+        public int Id { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -16,6 +16,5 @@ namespace OpenTashkent.Models
         public IEnumerable<Subject>? SubjectsInterestedIn { get; set; }
         public IEnumerable<Disease>? Diseases { get; set; }
         public string? ResponsiblePerson { get; set; }
-        public IEnumerable<Subject>? SubjectsCanTeach { get; set; }
     }
 }
