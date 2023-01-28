@@ -1,34 +1,46 @@
 ﻿@model IEnumerable<OpenTashkent.Models.Student>;
-
-<table>
+    <h1>Students</h1>
+            <table class="students-table">
   <thead>
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Diseases</th>
-      <th>Address</th>
+      <th class="table-header">Name</th>
+        <th class="table-header">Subjects</th>
+      <th class="table-header">Diseases</th>
+      <th class="table-header">Address</th>
     </tr>
   </thead>
   <tbody>
     @foreach (var student in Model)
     {
       <tr>
-        <td>@student.FirstName</td>
-        <td>@student.LastName</td>
-        <td>
+        <td class="table-data">
+          <a class="name-custom" href="student/@student.Id">
+            @student.FirstName @student.LastName
+          </a>
+        </td>
+        <td class="table-data">
+          @if (student.SubjectsInterestedIn != null)
+          {
+            @foreach (var subject in student.SubjectsInterestedIn)
+            {
+              <span class="subject-item">@subject.SubjectName,</span>
+            }
+          }
+        </td>
+        <td class="table-data">
           @if (student.Diseases != null)
           {
             @foreach (var disease in student.Diseases)
             {
-              <span>@disease.DiseaseName</span>
+              <span class="disease-item">@disease.DiseaseName,</span>
             }
           }
           else
           {
-            <span>None</span>
+            <span class="none">None</span>
           }
         </td>
-        <td>
+        <td class="table-data">
           @student.Adress
         </td>
       </tr>
