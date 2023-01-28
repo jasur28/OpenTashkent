@@ -9,14 +9,11 @@ namespace OpenTashkent.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly UserDbContext _userDbContext;
+        private readonly CustomDbContext _userDbContext;
         public HomeController(ILogger<HomeController> logger,
-            UserManager<ApplicationUser> userManager,
-            UserDbContext userDbContext)
+            CustomDbContext userDbContext)
         {
             _logger = logger;
-            _userManager = userManager;
             _userDbContext = userDbContext;
         }
 
