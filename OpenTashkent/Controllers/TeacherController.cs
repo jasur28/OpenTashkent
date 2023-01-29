@@ -90,6 +90,10 @@ namespace OpenTashkent.Controllers
         {
             return View();
         }
+        public IActionResult Student()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult ChooseTime(Student student,DayOfWeek data_day,
             DateTimeOffset data_time)
