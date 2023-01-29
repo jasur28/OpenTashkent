@@ -10,38 +10,50 @@ namespace OpenTashkent.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly CustomDbContext _userDbContext;
-        public HomeController(ILogger<HomeController> logger,
-            CustomDbContext userDbContext)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
-            _userDbContext = userDbContext;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
         {
-            ViewData["IsSignedIn"] = false;
-            if (User.Identity.IsAuthenticated)
-            {
-                ViewData["IsSignedIn"] = true;
-                ViewData["Username"] = User.Identity.Name;
-            }
-            else
-            {
-                ViewData["IsSignedIn"] = false;
-            }
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        //private readonly CustomDbContext _userDbContext;
+        //public HomeController(ILogger<HomeController> logger,
+        //    CustomDbContext userDbContext)
+        //{
+        //    _logger = logger;
+        //    _userDbContext = userDbContext;
+        //}
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //public IActionResult Index()
+        //{
+        //    ViewData["IsSignedIn"] = false;
+        //    if (User.Identity.IsAuthenticated)
+        //    {
+        //        ViewData["IsSignedIn"] = true;
+        //        ViewData["Username"] = User.Identity.Name;
+        //    }
+        //    else
+        //    {
+        //        ViewData["IsSignedIn"] = false;
+        //    }
+        //    return View();
+        //}
+
+        //public IActionResult Privacy()
+        //{
+        //    return View();
+        //}
+
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }

@@ -15,7 +15,8 @@ namespace OpenTashkent.Models
         public string UserName { get; set; }
         public DateTime? BirthDate { get; set; }
         public string? Adress { get; set; }
-        public DateTime? AcessibleTime { get; set; }
+        public DayOfWeek AcessibleDay { get; set; }
+        public DateTimeOffset AcessibleTime { get; set; }
         public string? TelephoneNumber { get; set; }
         public IEnumerable<Subject>? SubjectsInterestedIn { get; set; }
         public IEnumerable<Disease>? Diseases { get; set; }
