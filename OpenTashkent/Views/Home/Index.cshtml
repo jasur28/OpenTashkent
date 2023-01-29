@@ -1,7 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a style="font-size:25px" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Talim</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+
+                    </li>
+                    <li class="nav-item">
+                    </li>
+                </ul>
+            </div>
+            <a class="sign-in-custom" asp-area="" asp-controller="Account" asp-action="SignIn">Sign in</a>
+        </div>
+    </nav>
+</header>
+<div class="about-us-dv">
     <h1 class="about-us">О нас</h1>
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -22,6 +43,10 @@
 </div>
 
 <div class="welcome-page">
+    <a href="/teacher/SignUp">
     <button class="custom-button">Я учитель</button>
+    </a>
+    <a href="/student/SignUp">
     <button class="custom-button">Я ученик</button>
+    </a>
 </div>

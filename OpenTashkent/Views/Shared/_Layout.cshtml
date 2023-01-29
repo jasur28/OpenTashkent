@@ -1,4 +1,8 @@
 ﻿<!DOCTYPE html>
+@{
+    var isSignedIn = ViewBag.IsSignedIn;
+    var username = ViewBag.Username;
+}
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,6 +13,7 @@
     <link rel="stylesheet" href="~/OpenTashkent.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <!--
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -26,11 +31,9 @@
                         </li>
                     </ul>
                 </div>
-                @if (ViewData["IsSignedIn"] != null){
-                @if (ViewData["IsSignedIn"].ToString() == "True")
-            {
-            <p>Welcome, @ViewData["Username"]</p>
-            }
+                @if (isSignedIn != null && isSignedIn.ToString() == "True")
+                {
+                <p>Welcome, @username</p>
                 }
             else
             {
@@ -39,6 +42,7 @@
             </div>
         </nav>
     </header>
+    -->
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -47,7 +51,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - OpenTashkent - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - Talim -
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

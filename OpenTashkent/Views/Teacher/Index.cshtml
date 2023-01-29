@@ -1,49 +1,61 @@
-﻿@model IEnumerable<OpenTashkent.Models.Student>;
-    <h1>Students</h1>
-            <table class="students-table">
-  <thead>
-    <tr>
-      <th class="table-header">Name</th>
-        <th class="table-header">Subjects</th>
-      <th class="table-header">Diseases</th>
-      <th class="table-header">Address</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach (var student in Model)
-    {
+﻿<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a style="font-size:25px" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Talim</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+
+                    </li>
+                    <li class="nav-item">
+                    </li>
+                </ul>
+            </div>
+            <p class="sign-in-custom">Jasur</p>
+        </div>
+    </nav>
+</header> 
+<head>
+    <title>Student Information</title>
+  </head>
+  <body>
+      <div class="obj-to-center">
+          <h1>Выберите ученика</h1>
+    <table>
       <tr>
-        <td class="table-data">
-          <a class="name-custom" href="student/@student.Id">
-            @student.FirstName @student.LastName
-          </a>
-        </td>
-        <td class="table-data">
-          @if (student.SubjectsInterestedIn != null)
-          {
-            @foreach (var subject in student.SubjectsInterestedIn)
-            {
-              <span class="subject-item">@subject.SubjectName,</span>
-            }
-          }
-        </td>
-        <td class="table-data">
-          @if (student.Diseases != null)
-          {
-            @foreach (var disease in student.Diseases)
-            {
-              <span class="disease-item">@disease.DiseaseName,</span>
-            }
-          }
-          else
-          {
-            <span class="none">None</span>
-          }
-        </td>
-        <td class="table-data">
-          @student.Adress
-        </td>
+        <th>Имя ученика</th>
+        <th>Заболевания</th>
+        <th>Предметы</th>
+        <th>Возраст</th>
+        <th>Адресс</th>
       </tr>
-    }
-  </tbody>
-</table>
+      <tr>
+        <td><a class="text-decoration-none" href="/teacher/chooseTime">Ибрагим Юлдашев</a></td>
+        <td>I – группа инвалидности</td>
+        <td>Математика, Физика</td>
+        <td>17</td>
+        <td>Ташкент</td>
+      </tr>
+      <tr>
+        <td><a class="text-decoration-none" href="/teacher/chooseTime">
+            Мансур Диеров</a></td>
+        <td>Дислексия</td>
+        <td>История, Биология, Музыка</td>
+        <td>11</td>
+        <td>Самарканд</td>
+      </tr>
+      <tr>
+        <td><a class="text-decoration-none" href="/teacher/chooseTime">
+            Сухроб Отамуродов</a></td>
+        <td>Опухоль позвоночника</td>
+        <td>Физкультура, Информатика</td>
+        <td>12</td>
+        <td>Бухара</td>
+      </tr>
+    </table>
+    </div>
+  </body>
